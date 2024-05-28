@@ -1,0 +1,77 @@
+plugins {
+	id "fabric-loom" version "1.6-SNAPSHOT"
+	id "com.modrinth.minotaur" version "2.+"
+}
+
+version = project.mod_version
+//group = project.maven_group
+
+base {
+	archivesName = project.archives_base_name
+}
+
+repositories {
+	maven {url "https://maven.wispforest.io"}
+}
+
+loom {
+    splitEnvironmentSourceSets()
+
+	mods {
+		"instant_pistons" {
+			sourceSet sourceSets.main
+			sourceSet sourceSets.client
+		}
+	}
+
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+	modImplementation "io.wispforest:owo-lib:${project.owo_lib_version}"
+	annotationProcessor "io.wispforest:owo-lib:${project.owo_lib_version}"
+}
+
+processResources {
+	inputs.property "version", project.version
+
+	filesMatching("fabric.mod.json") {
+		expand "version": project.version
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 17
+}
+
+java {
+	withSourcesJar()
+
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
+}
+
+jar {
+	from("LICENSE") {
+		rename { "${it}_${project.base.archivesName.get()}"}
+	}
+}
+
+modrinth {
+	//token = "$MODRINTH_TOKEN"
+	projectId = "instant_pistons"
+	versionNumber = "${project.mod_version}"
+	uploadFile = remapJar
+	additionalFiles = [remapSourcesJar]
+	versionType = "alpha"
+	//gameVersions = ["1.20.4"]
+	dependencies {
+		required.project "owo-lib"
+		optional.project "g4mespeed"
+	}
+	syncBodyFrom = rootProject.file("README.md").text
+	changelog = rootProject.file("CHANGELOG_CURRENT").text
+}

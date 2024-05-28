@@ -1,0 +1,31 @@
+{
+	"schemaVersion": 1,
+	"id": "instant_pistons",
+	"version": "${version}",
+	"name": "instant pistons",
+	"description": "makes pistons extend instantly",
+	"authors": [
+		"WarpedWartWars"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/instant_pistons",
+		"sources": "https://github.com/WarpedWartWars/instant_pistons"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/instant_pistons/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.warpedwartwars.instant_pistons.InstantPistonsMod"
+		]
+	},
+	"mixins": [
+		"instant_pistons.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.10",
+		"minecraft": "~1.20.4",
+		"java": ">=17",
+		"owo-lib": ">=0.12.6+1.20.3"
+	}
+}

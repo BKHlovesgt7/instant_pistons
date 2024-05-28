@@ -1,0 +1,11 @@
+{
+	"required": true,
+	"package": "com.warpedwartwars.instant_pistons.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"mixins": [
+		"PistonBlockEntityMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
