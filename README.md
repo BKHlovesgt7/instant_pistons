@@ -2,10 +2,10 @@
 Minecraft mod for Fabric to make piston speed customizable (because i wanted that and didn't find an already-existing mod for it)
 
 ## dependencies
-- [oωo-lib](https://modrinth.com/owo-lib) for config
+- [oωo-lib](https://modrinth.com/mod/owo-lib) for config
 
 ## incompatibilities
-- [#1](https://github.com/WarpedWartWars/instant_pistons/issues/1) [Lithium](https://modrinth.com/lithium) - [G4mespeed](https://modrinth.com/mod/g4mespeed) "fixes" it
+- [#1](https://github.com/WarpedWartWars/instant_pistons/issues/1) [Lithium](https://modrinth.com/mod/lithium) - [G4mespeed](https://modrinth.com/mod/g4mespeed) "fixes" it
 
 ## bugs
 - animations are messed up (note to self: check without lithium+g4mespeed)
